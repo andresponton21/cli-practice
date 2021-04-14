@@ -12,9 +12,13 @@
 // Step 1: Capture user input
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
-
+console.log(process.argv);
 // We will store each piece of information in a dedicated variable for later use.
+const amount = process.argv[2]
+const intialCurrency = process.argv[3]
+const targetCurrency = process.argv[4]
 
+console.log(amount)
 
 
 // --------------------------------------------------
