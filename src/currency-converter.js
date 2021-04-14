@@ -28,8 +28,15 @@ console.log(amount)
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
-
-
+if(amount===undefined){
+    console.error('woops you must provide an amount')
+}
+if(intialCurrency===undefined){
+    console.error('woops you must provide an initial currency')
+}
+if(targetCurrency===undefined){
+    console.error('woops you must provide a target currency')
+}
 
 // --------------------------------------------------
 // Step 3: Define currency conversion rates
