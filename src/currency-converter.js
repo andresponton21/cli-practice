@@ -30,12 +30,17 @@ console.log(amount)
 // and exit the program.
 if(amount===undefined){
     console.error('woops you must provide an amount')
+    process.exit()
 }
 if(intialCurrency===undefined){
     console.error('woops you must provide an initial currency')
+    process.exit()
+
 }
 if(targetCurrency===undefined){
     console.error('woops you must provide a target currency')
+    process.exit()
+
 }
 
 // --------------------------------------------------
@@ -50,7 +55,15 @@ if(targetCurrency===undefined){
 // The conversion rates do not have to be accurate, athough this resource contains
 // up-to-date rate information: https://www.xe.com/
 
-
+const rates = {
+    USD:{
+        CAD:1.25
+    },
+    CAD:{
+        USD:0.8
+    }
+}
+console.log(rates)
 
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
