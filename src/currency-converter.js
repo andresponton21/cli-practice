@@ -12,13 +12,13 @@
 // Step 1: Capture user input
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
-console.log(process.argv);
+
 // We will store each piece of information in a dedicated variable for later use.
 const amount = process.argv[2]
 const intialCurrency = process.argv[3]
 const targetCurrency = process.argv[4]
 
-console.log(amount)
+
 
 
 // --------------------------------------------------
@@ -63,14 +63,7 @@ const rates = {
         USD:0.8
     }
 }
-if(rates[intialCurrency]===undefined){
-    console.log('woops invalid initial currency . recieved: ' ,intialCurrency)
-    process.exit()
-}
-if(rates[intialCurrency][targetCurrency]===undefined){
-    console.log('woops invalid target currency . recieved: ' ,targetCurrency)
-    process.exit()
-}
+
 
 
 // --------------------------------------------------
@@ -81,7 +74,14 @@ if(rates[intialCurrency][targetCurrency]===undefined){
 
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
-
+if(rates[intialCurrency]===undefined){
+    console.error('woops invalid initial currency . recieved: ' ,intialCurrency)
+    process.exit()
+}
+if(rates[intialCurrency][targetCurrency]===undefined){
+    console.error('woops invalid target currency . recieved: ' ,targetCurrency)
+    process.exit()
+}
 
 
 // --------------------------------------------------
@@ -92,7 +92,8 @@ if(rates[intialCurrency][targetCurrency]===undefined){
 
 // Now we will compute the rate, apply it to the amount, and capture the result.
 
-
+const amountCoverted = amount * rates[intialCurrency][targetCurrency]
+// console.log(amountCoverted)
 
 // --------------------------------------------------
 // Step 6: Display results
@@ -101,3 +102,5 @@ if(rates[intialCurrency][targetCurrency]===undefined){
 
 // This message should also include the original amount and currency information
 // supplied by the user.
+const finalMessage = `the amount you want to convert from ${intialCurrency} to ${targetCurrency} is: ${amount}, and the converted amount that you will get is: ${amountCoverted}`
+console.log(finalMessage)
