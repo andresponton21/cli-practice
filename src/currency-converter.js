@@ -63,7 +63,15 @@ const rates = {
         USD:0.8
     }
 }
-console.log(rates)
+if(rates[intialCurrency]===undefined){
+    console.log('woops invalid initial currency . recieved: ' ,intialCurrency)
+    process.exit()
+}
+if(rates[intialCurrency][targetCurrency]===undefined){
+    console.log('woops invalid target currency . recieved: ' ,targetCurrency)
+    process.exit()
+}
+
 
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
